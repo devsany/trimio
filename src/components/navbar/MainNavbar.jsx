@@ -142,16 +142,19 @@ const MainNavbar = () => {
               </div>
             </>
           ) : (
-            <div className="flex space-x-4">
+            <div className="flex space-x-6">
+              {/* Sign In Button */}
               <button
                 onClick={() => toggleModal(false)}
-                className="px-8 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="px-6 py-3 bg-indigo-500 text-white rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-400 transform hover:scale-105"
               >
                 Sign In
               </button>
+
+              {/* Sign Up Button */}
               <button
                 onClick={() => toggleModal(true)}
-                className="px-8 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="px-6 py-3 bg-green-500 text-white rounded-xl shadow-lg hover:bg-green-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400 transform hover:scale-105"
               >
                 Sign Up
               </button>

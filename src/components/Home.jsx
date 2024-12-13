@@ -62,16 +62,7 @@ function Home() {
       setError("Please enter a URL");
       return;
     } // Simulate URL shortening
-    setTimeout(() => {
-      if (url === "") {
-        setError("Please enter a valid URL.");
-      } else if (!url.startsWith("http")) {
-        setError('URL must start with "http" or "https".');
-      } else {
-        setUrlView(`https://short.url/${url.substring(url.length - 6)}`);
-      }
-      setLoading(false);
-    }, 1500); // Simulating network delay
+
     setError(null);
 
     const randomURL = generateRandomAlphabetURL();
@@ -198,6 +189,8 @@ function Home() {
           </div>
         </div>
       </section>
+      {/* <URLShortenerForm /> */}
+
       <section className="py-16">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-12">What We Offer</h2>
@@ -257,7 +250,7 @@ function Home() {
               </div>
             </div>
             <div className="flex items-start space-x-6">
-              <CheckCircle className="text-green-500" size={48} />
+              <CheckCircle className="text-yellow-400" size={48} />
               <div>
                 <h3 className="text-xl font-semibold text-blue-700">
                   Track Success
