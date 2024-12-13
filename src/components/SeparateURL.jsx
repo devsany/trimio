@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const SeparateURL = () => {
   const [data, setData] = useState(null); // State to store fetched data
   const { id } = useParams();
-
+  console.log(id);
   const fetchData = async () => {
     try {
       // Get the ID from the URL or wherever you need it from
