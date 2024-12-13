@@ -245,7 +245,7 @@ function Home() {
               </div>
             </div>
             <div className="flex items-start space-x-6">
-              <Clipboard className="text-blue-500" size={48} />
+              <Clipboard className="text-pink-500" size={48} />
               <div>
                 <h3 className="text-xl font-semibold text-blue-700">
                   Copy to Clipboard
@@ -257,7 +257,7 @@ function Home() {
               </div>
             </div>
             <div className="flex items-start space-x-6">
-              <CheckCircle className="text-blue-500" size={48} />
+              <CheckCircle className="text-green-500" size={48} />
               <div>
                 <h3 className="text-xl font-semibold text-blue-700">
                   Track Success
@@ -268,7 +268,7 @@ function Home() {
               </div>
             </div>
             <div className="flex items-start space-x-6">
-              <Share2 className="text-blue-500" size={48} />
+              <Share2 className="text-red-500" size={48} />
               <div>
                 <h3 className="text-xl font-semibold text-blue-700">
                   Share Fast
