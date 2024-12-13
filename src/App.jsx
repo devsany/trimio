@@ -16,7 +16,7 @@ function App() {
       randomURL += characters[randomIndex];
     }
 
-    return `https://example.com/${randomURL}`;
+    return `https://trimio.vercel.app/${randomURL}`;
   };
   const generateUUID = () => {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (char) => {
