@@ -137,6 +137,9 @@ const MainNavbar = () => {
             <>
               <div className="flex gap-6 ">
                 <div className="text-md hover:border hover-border-slate-700 p-1 rounded-md hover:shadow-sm">
+                  <NavLink to="/">Home</NavLink>
+                </div>
+                <div className="text-md  hover-border-slate-700 p-1 rounded-md hover:shadow-sm">
                   <NavLink to="/dashboard">Dashboard</NavLink>
                 </div>
                 <div>

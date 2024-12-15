@@ -87,6 +87,7 @@ function Home() {
       displayName: user ? user.displayName : null,
       timestamp: timestamp,
       location: location.latitude && location.longitude ? location : null,
+      isActive: true, // Set the isActive status to false
     })
       .then(() => {
         console.log("Data successfully written!");
@@ -307,7 +308,7 @@ function Home() {
             <h2 className="text-4xl font-semibold text-gray-900 mb-6 text-center">
               URL Shortener - Trimio
             </h2>
-            <p className="text-xl text-gray-600 mb-4 text-center">
+            <p className="text-sm text-gray-600 mb-4  ">
               Shorten your long URLs into quick, easy-to-share links with
               Trimio.
             </p>
@@ -315,7 +316,7 @@ function Home() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <label
                 htmlFor="input-url"
-                className="block text-lg font-medium text-gray-800 mb-2"
+                className="block text-lg font-medium text-gray-800 "
               >
                 Enter the URL you want to shorten:
               </label>
