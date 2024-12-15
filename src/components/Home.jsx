@@ -378,7 +378,7 @@ function Home() {
       <PerformanceAnalytics />
       {/* <Pricing /> */}
       <ServicesSection />
-      <TestimonialCarousel />
+      {/* <TestimonialCarousel /> */}
     </div>
   );
 }
