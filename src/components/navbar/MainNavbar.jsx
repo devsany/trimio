@@ -120,7 +120,8 @@ const MainNavbar = () => {
         <div className="text-2xl font-bold text-gray-700">
           <img
             className="w-[200px] rounded-lg shadow-sm"
-            src="/public/Screenshot 2024-12-13 190438.png"
+            src="/Screenshot 2024-12-13 190438.png"
+            // src="/Screenshot 2024-12-13 190438.png"
             alt=""
           />
         </div>
@@ -154,8 +155,25 @@ const MainNavbar = () => {
               {/* Sign Up Button */}
               <button
                 onClick={() => toggleModal(true)}
-                className="px-6 py-3 bg-green-500 text-white rounded-xl shadow-lg hover:bg-green-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400 transform hover:scale-105"
+                className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 focus:outline-none focus:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-400 dark:hover:bg-blue-900 dark:focus:bg-blue-900"
               >
+                <svg
+                  className="w-6 h-6 text-blue-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
+                  />
+                </svg>
                 Sign Up
               </button>
             </div>
