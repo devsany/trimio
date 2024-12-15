@@ -111,7 +111,14 @@ const MainNavbar = () => {
     // Clean up the listener when the component unmounts
     return () => unsubscribe();
   }, []);
-
+  const handleCancel = () => {
+    setShowMenu(!showMenu);
+    setShowModal(false);
+  };
+  const handleLogout = () => {
+    setShowModal(!showModal);
+    logOut();
+  };
   console.log(userInformation);
   return (
     <div className="bg-white   shadow-md fixed top-0 left-0 w-full z-50 p-4">
@@ -186,23 +193,28 @@ const MainNavbar = () => {
 
       {/* Modal for SignIn/SignUp */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
-              {isSignUp ? "Create an Account" : "Sign In"}
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-70">
+          <div className="bg-white p-8 rounded-xl shadow-2xl w-96">
+            <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
+              {isSignUp ? "Sign Up" : "Log In"}
             </h2>
-            <div className="space-y-4">
+            <p className="text-sm text-gray-500 text-center mb-6">
+              {isSignUp
+                ? "Join us and start your journey!"
+                : "Welcome back! Please log in to continue."}
+            </p>
+            <div className="space-y-5">
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-600 mb-1"
+                  className="block text-sm font-semibold text-gray-600 mb-2"
                 >
                   Email Address
                 </label>
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring focus:ring-indigo-400 focus:outline-none text-gray-700 transition"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -211,21 +223,21 @@ const MainNavbar = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-600 mb-1"
+                  className="block text-sm font-semibold text-gray-600 mb-2"
                 >
                   Password
                 </label>
                 <input
                   type="password"
                   id="password"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring focus:ring-indigo-400 focus:outline-none text-gray-700 transition"
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
-            <div className="mt-6 flex flex-col space-y-4">
+            <div className="mt-8 flex flex-col gap-4">
               <button
                 onClick={isSignUp ? signUp : signIn}
                 className="w-full py-3 bg-indigo-500 text-white rounded-lg font-medium hover:bg-indigo-600 transition duration-200"
@@ -262,11 +274,11 @@ const MainNavbar = () => {
                     />
                   </g>
                 </svg>
-                Sign In with Google
+                Continue with Google
               </button>
               <button
-                onClick={() => setShowModal(false)}
-                className="w-full text-center text-gray-500 hover:text-gray-700 transition"
+                onClick={handleCancel}
+                className="w-full text-center text-gray-400 hover:text-gray-600 transition"
               >
                 Cancel
               </button>
@@ -311,7 +323,7 @@ const MainNavbar = () => {
             </li>
             <li>
               <div
-                onClick={logOut}
+                onClick={handleLogout}
                 href="/"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
               >

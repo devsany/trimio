@@ -14,6 +14,10 @@ import {
 } from "react-feather";
 import PerformanceAnalytics from "./sections/PerformanceAnalytics";
 import Pricing from "./sections/PricingSection";
+import ThreadAnimation from "./animation/ThreadAnimation ";
+import TreeAnimation from "./animation/TreeAnimation";
+import FloatingDots from "./animation/FloatingDots";
+import WaveAnimation from "./animation/WaveAnimation ";
 
 function Home() {
   const [url, setUrl] = useState("");
@@ -150,8 +154,18 @@ function Home() {
   return (
     <div className="min-h-screen  flex flex-col justify-center items-center py-8 px-4">
       <MainNavbar />
+
       <section className="text-center mb-8">
         <div className="m-[10px] relative pt-10 pb-10 bg-blue-50 mt-[70px] rounded-tl-3xl  rounded-tr-3xl   ">
+          <div className="absolute ml-14">
+            <div className="flex gap-30">
+              <div></div>
+              <div>
+                <FloatingDots />
+              </div>
+            </div>
+          </div>
+
           <div className="hidden md:block w-[400px] opacity-60  right-0 mt-[60px]   absolute">
             <img
               src="public/illustration-ezgif.com-png-to-jpg-converter.png"
@@ -192,7 +206,7 @@ function Home() {
       {/* <URLShortenerForm /> */}
 
       <section className="py-16">
-        <div className="container mx-auto text-center">
+        <div className="container   mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-12">What We Offer</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -220,8 +234,11 @@ function Home() {
         </div>
       </section>
       <section className="flex justify-center items-center py-12 rounded-xl bg-blue-50">
-        <div className="container max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="container relative max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Left Section: Informative Icons */}
+          <div className="absolute ml-[-100px]">
+            <ThreadAnimation />
+          </div>
           <div className="flex flex-col space-y-8">
             <h2 className="text-3xl font-bold text-blue-800 mb-6">
               Why Use Our URL Shortener?
