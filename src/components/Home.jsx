@@ -168,7 +168,7 @@ function Home() {
 
           <div className="hidden md:block w-[400px] opacity-60  right-0 mt-[60px]   absolute">
             <img
-              src="public/illustration-ezgif.com-png-to-jpg-converter.png"
+              src="/illustration-ezgif.com-png-to-jpg-converter.png"
               alt=""
             />
           </div>
