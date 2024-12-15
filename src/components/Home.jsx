@@ -19,6 +19,11 @@ import TreeAnimation from "./animation/TreeAnimation";
 import FloatingDots from "./animation/FloatingDots";
 import WaveAnimation from "./animation/WaveAnimation ";
 import WaveAnimationGSAP from "./animation/WaveAnimation";
+import ServicesSection from "./sections/ServicesSection";
+import { FaClipboard, FaLink } from "react-icons/fa";
+import ExtraInfoSections from "./sections/TestimonialCarousel";
+import TestimonialSection from "./sections/TestimonialCarousel";
+import TestimonialCarousel from "./sections/TestimonialCarousel";
 
 function Home() {
   const [url, setUrl] = useState("");
@@ -193,7 +198,10 @@ function Home() {
               }}
               className="text-5xl w-[75%] font-bold text-blue-600"
             >
-              Trimio: Simplifying URLs with style and powerful analytics.
+              Trimio: Simplifying URLs with style and{" "}
+              <span className="text-5xl font-bold bg-gradient-to-r from-blue-500 via-green-500 to-[#FECC39] bg-clip-text text-transparent">
+                powerful analytics.
+              </span>
               <div className="flex justify-center">
                 <p className="  text-slate-700 text-lg w-[75%] font-thin mt-4">
                   Trimio simplifies long URLs into short, shareable links with a
@@ -222,21 +230,21 @@ function Home() {
         <div className="container   mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-12">What We Offer</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="   bg-gradient-to-t from-[#FAFDD1] to-white p-6 rounded-lg shadow-lg">
               <Link2 className="mx-auto mb-6 w-12 h-12 text-blue-500" />
               <h3 className="text-xl font-semibold mb-4">URL Shortening</h3>
               <p className="text-gray-600">
                 Shorten URLs for easy sharing and tracking.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className=" bg-gradient-to-t from-[#DCF3EF] to-white p-6 rounded-lg shadow-lg">
               <BarChart className="mx-auto mb-6 w-12 h-12 text-green-500" />
               <h3 className="text-xl font-semibold mb-4">Analytics</h3>
               <p className="text-gray-600">
                 Track your shortened links with detailed analytics.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-gradient-to-t from-[#EBD5F3] to-white p-6 rounded-lg shadow-lg">
               <Settings className="mx-auto mb-6 w-12 h-12 text-red-500" />
               <h3 className="text-xl font-semibold mb-4">Custom URLs</h3>
               <p className="text-gray-600">
@@ -304,11 +312,11 @@ function Home() {
           </div>
 
           {/* Right Section: URL Shortening Form */}
-          <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-md border border-gray-200">
+          <div className="w-full max-w-lg p-8 bg-gradient-to-t from-white to-white rounded-lg shadow-md border border-gray-200">
             <h2 className="text-4xl font-semibold text-gray-900 mb-6 text-center">
               URL Shortener - Trimio
             </h2>
-            <p className="text-sm text-gray-600 mb-4  ">
+            <p className="text-sm text-gray-600 mb-4">
               Shorten your long URLs into quick, easy-to-share links with
               Trimio.
             </p>
@@ -316,7 +324,7 @@ function Home() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <label
                 htmlFor="input-url"
-                className="block text-lg font-medium text-gray-800 "
+                className="block text-lg font-medium text-gray-800"
               >
                 Enter the URL you want to shorten:
               </label>
@@ -342,7 +350,7 @@ function Home() {
                   <span className="inline-block mr-2">Loading...</span>
                 ) : (
                   <>
-                    <CheckCircle className="inline-block mr-2" />
+                    <FaLink className="inline-block mr-2" />
                     Shorten URL
                   </>
                 )}
@@ -359,7 +367,7 @@ function Home() {
                   onClick={handleCopyText}
                   className="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-gray-800 focus:outline-none transition duration-200"
                 >
-                  <Clipboard className="inline-block mr-2" />
+                  <FaClipboard className="inline-block mr-2" />
                   Copy
                 </button>
               </div>
@@ -368,7 +376,9 @@ function Home() {
         </div>
       </section>
       <PerformanceAnalytics />
-      <Pricing />
+      {/* <Pricing /> */}
+      <ServicesSection />
+      <TestimonialCarousel />
     </div>
   );
 }
