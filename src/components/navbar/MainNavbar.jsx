@@ -145,36 +145,39 @@ const MainNavbar = () => {
           ) : (
             <div className="flex space-x-6">
               {/* Sign In Button */}
+
               <button
                 onClick={() => toggleModal(false)}
-                className="px-6 py-3 bg-indigo-500 text-white rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-400 transform hover:scale-105"
+                className="p-[3px] relative"
               >
-                Sign In
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+                  Login In
+                </div>
               </button>
-
               {/* Sign Up Button */}
+
               <button
                 onClick={() => toggleModal(true)}
-                className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 focus:outline-none focus:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-400 dark:hover:bg-blue-900 dark:focus:bg-blue-900"
+                type="button"
+                className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
               >
+                Signup free
                 <svg
-                  className="w-6 h-6 text-blue-800 dark:text-white"
-                  aria-hidden="true"
+                  className="shrink-0 size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
-                  fill="none"
                   viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
-                  />
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
                 </svg>
-                Sign Up
               </button>
             </div>
           )}
@@ -183,77 +186,81 @@ const MainNavbar = () => {
 
       {/* Modal for SignIn/SignUp */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-            <h2 className="text-xl font-bold mb-4 text-center">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
               {isSignUp ? "Create an Account" : "Sign In"}
             </h2>
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-gray-700 font-medium"
-              >
-                Email:
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+            <div className="space-y-4">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-600 mb-1"
+                >
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-600 mb-1"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
             </div>
-            <div className="mb-6">
-              <label
-                htmlFor="password"
-                className="block text-gray-700 font-medium"
-              >
-                Password:
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="flex flex-col space-y-4">
+            <div className="mt-6 flex flex-col space-y-4">
               <button
                 onClick={isSignUp ? signUp : signIn}
-                className="w-full px-8 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition"
+                className="w-full py-3 bg-indigo-500 text-white rounded-lg font-medium hover:bg-indigo-600 transition duration-200"
               >
                 {isSignUp ? "Create Account" : "Sign In"}
               </button>
               <button
                 onClick={googleSignIn}
-                className="flex items-center justify-center w-full px-8 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition"
+                className="flex items-center justify-center w-full py-3 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 48 48"
                   width="24"
                   height="24"
-                  className="mr-3"
+                  className="mr-2"
                 >
-                  <path
-                    fill="#4285F4"
-                    d="M23.49 12.27c0-.76-.07-1.48-.19-2.16H12v4.2h6.36c-.27 1.47-1.03 2.72-2.12 3.39v2.83h3.42c2.01-1.85 3.16-4.59 3.16-8.26z"
-                  />
-                  <path
-                    fill="#34A853"
-                    d="M12 6.59c1.09 0 2.03.37 2.78.99l2.07-2.07C15.77 3.42 14.02 2.5 12 2.5c-3.29 0-6 2.69-6 6 0 2.74 1.83 5.07 4.3 5.91l2.53-2.02c-.61-.35-.99-.98-.99-1.74 0-1.16.96-2.1 2.1-2.1z"
-                  />
-                  <path
-                    fill="#FBBC05"
-                    d="M7.3 8.91c-.35-.98-.35-2.04 0-3.02l-2.53-2.02C2.29 4.1 1.99 5.25 1.99 6.5c0 1.38.5 2.63 1.34 3.61l2.53-2.02z"
-                  />
-                  <path
-                    fill="#EA4335"
-                    d="M12 3.5c-.81 0-1.58.28-2.17.76l-2.07-2.07C9.8.56 10.89 0 12 0c3.31 0 6 2.69 6 6 0 2.75-1.84 5.09-4.3 5.92l-2.53-2.02c.61-.35.99-.99.99-1.74 0-1.16-.96-2.1-2.1-2.1z"
-                  />
+                  <g>
+                    <path
+                      fill="#4285F4"
+                      d="M24 9.5c3.17 0 5.67 1.05 7.65 3.07l5.74-5.74C34.19 3.17 29.61 1.5 24 1.5c-8.64 0-15.88 5.03-19.45 12.34l6.94 5.38C13.54 12.14 18.42 9.5 24 9.5z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M46.14 24.3c0-1.33-.12-2.6-.36-3.84H24v7.32h12.46c-.53 2.75-2.09 5.08-4.45 6.65l6.94 5.38c4.05-3.73 6.19-9.23 6.19-15.51z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M6.55 14.16L-.4 8.78C-3.05 14.3-3.05 21.2-.4 26.72l6.95-5.37C5.14 18.4 5.14 15.6 6.55 14.16z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M24 46.5c5.61 0 10.19-1.67 13.67-4.59l-6.94-5.38c-2.04 1.37-4.7 2.17-7.73 2.17-5.59 0-10.47-2.64-13.45-6.84l-6.94 5.38C8.12 41.47 15.36 46.5 24 46.5z"
+                    />
+                  </g>
                 </svg>
                 Sign In with Google
               </button>
@@ -271,10 +278,10 @@ const MainNavbar = () => {
         <div className="z-50 absolute ml-[200px] md:ml-[1050px] mt-[30px] w-[250px]  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
           <div className="px-4 py-3">
             <span className="block text-sm text-gray-900 dark:text-white">
-              {userInformation.displayName}
+              {userInformation?.displayName}
             </span>
             <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-              {userInformation.email}
+              {userInformation?.email}
             </span>
           </div>
           <ul className="py-2" aria-labelledby="user-menu-button">
