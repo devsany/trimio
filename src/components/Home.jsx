@@ -18,6 +18,7 @@ import ThreadAnimation from "./animation/ThreadAnimation ";
 import TreeAnimation from "./animation/TreeAnimation";
 import FloatingDots from "./animation/FloatingDots";
 import WaveAnimation from "./animation/WaveAnimation ";
+import WaveAnimationGSAP from "./animation/WaveAnimation";
 
 function Home() {
   const [url, setUrl] = useState("");
@@ -148,8 +149,16 @@ function Home() {
     setPosition({ x, y });
   };
   const handleCopyText = () => {
-    navigator.clipboard.writeText(urlView);
-    setClicks(clicks + 1); // Increment the click count when the URL is copied
+    navigator.clipboard
+      .writeText(urlView)
+      .then(() => {
+        setClicks(clicks + 1); // Increment the click count when the URL is copied
+        window.alert("Your link has been copied to the clipboard!");
+        setUrlView(false);
+      })
+      .catch((err) => {
+        window.alert("Failed to copy link. Please try again.");
+      });
   };
   return (
     <div className="min-h-screen  flex flex-col justify-center items-center py-8 px-4">
@@ -200,6 +209,9 @@ function Home() {
             <div className="bg-[#75c4ec] ml-2 text-slate-700 pl-4 pr-4 pt-1 pb-1 cursor-pointer font-semibold text-sm shadow-md rounded-full">
               Contact Us
             </div>
+          </div>
+          <div className="mb-[-38px]">
+            <WaveAnimationGSAP />
           </div>
         </div>
       </section>
@@ -291,18 +303,23 @@ function Home() {
           </div>
 
           {/* Right Section: URL Shortening Form */}
-          <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-xl border-2 border-blue-100">
-            <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-              Enter Your Long URL
+          <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-md border border-gray-200">
+            <h2 className="text-4xl font-semibold text-gray-900 mb-6 text-center">
+              URL Shortener - Trimio
             </h2>
-            <form onSubmit={handleSubmit}>
+            <p className="text-xl text-gray-600 mb-4 text-center">
+              Shorten your long URLs into quick, easy-to-share links with
+              Trimio.
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
               <label
                 htmlFor="input-url"
-                className="block text-lg font-semibold text-blue-600 mb-2"
+                className="block text-lg font-medium text-gray-800 mb-2"
               >
-                <Link className="inline-block mr-2 text-blue-600" />
-                Trimio - Where Links Get a Makeover
+                Enter the URL you want to shorten:
               </label>
+
               <input
                 type="text"
                 placeholder="Enter your long URL"
@@ -310,13 +327,15 @@ function Home() {
                 name="input-url"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                className="w-full p-4 border-2 border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6 transition-all duration-300"
+                className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transition-all duration-200 text-gray-800 placeholder-gray-400"
               />
-              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
+              {error && <p className="text-red-500 text-sm">{error}</p>}
+
               <button
                 type="submit"
-                className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200"
-                disabled={loading} // Disable the button when loading
+                className="w-full py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-200"
+                disabled={loading}
               >
                 {loading ? (
                   <span className="inline-block mr-2">Loading...</span>
@@ -330,13 +349,14 @@ function Home() {
             </form>
 
             {urlView && (
-              <div className="flex items-center justify-between mt-6 p-4 bg-blue-100 rounded-lg shadow-md">
-                <p className="text-blue-600 text-base font-medium break-words">
+              <div className="flex items-center justify-between mt-6 p-4 bg-gray-50 rounded-md shadow-sm">
+                <p className="text-gray-800 text-sm font-medium break-words">
                   {urlView}
                 </p>
+
                 <button
                   onClick={handleCopyText}
-                  className="px-4 py-2 bg-blue-600 text-white font-bold text-base rounded-md hover:bg-blue-800 active:scale-95 transition duration-200"
+                  className="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-gray-800 focus:outline-none transition duration-200"
                 >
                   <Clipboard className="inline-block mr-2" />
                   Copy
