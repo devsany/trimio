@@ -9,7 +9,7 @@ const ServicesSection = () => {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
         {/* Link Shortening Section */}
-        <div className="text-center    bg-gradient-to-t from-[#FBFAF0] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        <div className="text-center bg-gradient-to-t from-[#FBFAF0] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <FaLink className="text-4xl text-teal-400 mb-4 mx-auto" />
           <h3 className="text-xl font-medium text-gray-800 mb-4">
             Easy Link Shortening

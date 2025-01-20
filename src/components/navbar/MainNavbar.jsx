@@ -27,7 +27,7 @@ const MainNavbar = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
-      console.log("Google Sign-In successful:", result.user);
+      console.log("Google SignIn successful:", result.user);
     } catch (error) {
       console.error("Error with Google Sign-In:", error.message);
     }
@@ -119,7 +119,6 @@ const MainNavbar = () => {
     setShowModal(!showModal);
     logOut();
   };
-  console.log(userInformation);
   return (
     <div className="bg-white   shadow-md fixed top-0 left-0 w-full z-50 p-4">
       {/* Navbar */}
