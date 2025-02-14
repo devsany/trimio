@@ -12,11 +12,8 @@ const UrlFormMain = () => {
           <div className="absolute ml-[-100px]">
             <ThreadAnimation />
           </div>
-
-          <DataFormLeft />
-
+          <DataFormLeft  />
           {/* Right Section: URL Shortening Form */}
-
           <DataFormRight />
         </div>
       </section>

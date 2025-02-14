@@ -17,6 +17,8 @@ import {
   StopCircle,
 } from "react-feather";
 import { AttributionControl } from "react-leaflet";
+import AboutTrimoAnalytics from "./AboutTrimoAnalytics/AboutTrimoAnalytics";
+import { FaClipboard } from "react-icons/fa";
 
 // Register the components
 ChartJS.register(
@@ -107,70 +109,26 @@ const PerformanceAnalytics = () => {
         <div className="flex flex-col justify-center space-y-8">
           <div className="flex items-center space-x-6">
             <div>
-              <h2 className="text-3xl font-bold text-blue-700">
-                <div className="flex items-center gap-3">
-                  <Clipboard size={30} /> <div>Trimio Analytics</div>
-                </div>
-              </h2>
-              <p className="text-gray-700 text-lg">
-                Welcome to Trimio's performance analytics dashboard. Track the
-                success of your shortened URLs, monitor user behavior, and
-                optimize your marketing campaigns with data-driven insights.
-              </p>
+              <AboutTrimoAnalytics
+                icon={<FaClipboard size="30" />}
+                header="Trimio Analytics"
+                description="Welcome to Trimio's performance analytics dashboard. Track the success of your shortened URLs, monitor user behavior, and optimize your marketing campaigns with data-driven insights."
+              />
             </div>
           </div>
 
           {/* About Section */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-blue-700">
-              <div className="flex items-center gap-3">
-                <ArrowLeftCircle size={30} /> <div>About Trimio</div>
-              </div>
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Trimio is a robust URL shortening service designed to help
+            <AboutTrimoAnalytics
+              icon={<ArrowLeftCircle size={30} />}
+              header="About Trimio"
+              description="Trimio is a robust URL shortening service designed to help
               businesses track and optimize their online links. Our powerful
               analytics provide valuable insights into user engagement,
               click-through rates, and conversion trends, ensuring that your
-              marketing efforts are always data-driven.
-            </p>
+              marketing efforts are always data-driven."
+            />
           </div>
-
-          {/* Performance Insights */}
-          {/* <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-blue-700">
-              Performance Insights
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Our analytics provide a detailed look at user interactions with
-              your links. This includes:
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>User Engagement: How often your links are clicked.</li>
-              <li>
-                Conversion Rate: The percentage of users who perform the desired
-                action after clicking.
-              </li>
-              <li>
-                Click-through Rate: The rate at which users engage with the
-                link.
-              </li>
-            </ul>
-          </div> */}
-
-          {/* Key Takeaways */}
-          {/* <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-blue-700">
-              Key Takeaways
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Trimio analytics show a significant increase in user engagement,
-              conversion rates, and click-through rates, indicating that your
-              shortened URLs are performing exceptionally well. Regularly
-              monitoring these metrics will help you optimize your URLs for even
-              better performance.
-            </p>
-          </div> */}
         </div>
 
         {/* Right Section: Graph */}

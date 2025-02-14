@@ -1,6 +1,6 @@
 import MainNavbar from "./navbar/MainNavbar";
 import PerformanceAnalytics from "./sections/PerformanceAnalytics";
-import ServicesSection from "./sections/ServicesSection";
+import ServicesSection from "./service";
 import HeroSection from "./HeroSection/HeroSection";
 import OfferSection from "../offer/OfferSection";
 import UrlFormMain from "./form/urlFormMain/UrlFormMain";
@@ -11,12 +11,9 @@ function Home() {
       <MainNavbar />
       <HeroSection />
       <OfferSection />
-      {/* <URLShortenerForm /> */}
       <UrlFormMain />
       <PerformanceAnalytics />
-      {/* <Pricing /> */}
       <ServicesSection />
-      {/* <TestimonialCarousel /> */}
     </div>
   );
 }

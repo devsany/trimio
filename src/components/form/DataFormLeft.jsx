@@ -1,5 +1,6 @@
 import React from "react";
 import { CheckCircle, Clipboard, Link2, Share2 } from "react-feather";
+import AboutOurUrlShortner from "./AboutOurUrlShortner";
 
 const DataFormLeft = () => {
   return (
@@ -9,47 +10,31 @@ const DataFormLeft = () => {
         <h2 className="text-3xl font-bold text-blue-800 mb-6">
           Why Use Our URL Shortener?
         </h2>
+        <AboutOurUrlShortner
+          icon={<Link2 className="text-blue-500" size={48} />}
+          header="URL Shortening"
+          description="Easily shorten long URLs for better sharing and tracking."
+        />
         <div className="flex items-start space-x-6">
-          <Link2 className="text-blue-500" size={48} />
-          <div>
-            <h3 className="text-xl font-semibold text-blue-700">
-              URL Shortening
-            </h3>
-            <p className="text-gray-700 text-sm">
-              Easily shorten long URLs for better sharing and tracking.
-            </p>
-          </div>
+          <AboutOurUrlShortner
+            icon={<Clipboard className="text-pink-500" size={48} />}
+            header="Copy to Clipboard"
+            description="Quickly copy shortened URLs to your clipboard for fast sharing."
+          />
         </div>
         <div className="flex items-start space-x-6">
-          <Clipboard className="text-pink-500" size={48} />
-          <div>
-            <h3 className="text-xl font-semibold text-blue-700">
-              Copy to Clipboard
-            </h3>
-            <p className="text-gray-700 text-sm">
-              Quickly copy shortened URLs to your clipboard for fast sharing.
-            </p>
-          </div>
+          <AboutOurUrlShortner
+            icon={<CheckCircle className="text-yellow-400" size={48} />}
+            header="Track Success"
+            description="Monitor the engagement of your shortened URLs with ease."
+          />
         </div>
         <div className="flex items-start space-x-6">
-          <CheckCircle className="text-yellow-400" size={48} />
-          <div>
-            <h3 className="text-xl font-semibold text-blue-700">
-              Track Success
-            </h3>
-            <p className="text-gray-700 text-sm">
-              Monitor the engagement of your shortened URLs with ease.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-6">
-          <Share2 className="text-red-500" size={48} />
-          <div>
-            <h3 className="text-xl font-semibold text-blue-700">Share Fast</h3>
-            <p className="text-gray-700 text-sm">
-              Share shortened links directly across social media platforms.
-            </p>
-          </div>
+          <AboutOurUrlShortner
+            icon={<Share2 className="text-red-500" size={48} />}
+            header="Share Fast"
+            description=" Share shortened links directly across social media platforms."
+          />
         </div>
       </div>
     </div>
